@@ -1,0 +1,57 @@
+<!-- {{ list$ | async | json }} -->
+
+<div class="container">
+  <h1>Product Admin Page</h1>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <form action="" method="POST" class="form-inline" (submit)="onCreate($event)">
+        <div class="form-group">
+          <strong for="">New product:&nbsp;</strong>
+          <input id="" class="form-control" type="text" name="product" placeholder="name of product"
+            [(ngModel)]="product.product">
+        </div>
+        <div class="form-group">
+          <label for=""></label>
+          <input id="" class="form-control" type="text" name="price" placeholder="price" [(ngModel)]="product.price">
+        </div>
+        <div class="form-group">
+          <label for=""></label>
+          <input id="" class="form-control" type="text" name="manufacturerID" placeholder="manufacturerID"
+            [(ngModel)]="product.manufacturerID">
+        </div>
+        <div>
+          <button class="btn btn-info">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr />
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>product</th>
+        <th>price</th>
+        <th>manufacturerID</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of list$ | async">
+        <td>{{ row.id }}</td>
+        <td>{{ row.product }}</td>
+        <td>{{ row.price }}</td>
+        <td>{{ row.manufacturerID }}</td>
+        <td>
+          <div class="btn-group">
+            <a name="" id="" class="btn btn-primary" routerLink="/show/{{ row.id }}" role="button">Edit</a>
+            <a name="" id="" class="btn btn-danger" (click)="onDelete(row.id)" role="button">Delete</a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  .card-group
+    each product in products
+      .card
+          .card-header.bg-danger
+            h4= product.product
+          .card-body
+            .p Manufacturer id: #{product.manufacturerID}
+            .p Price: #{product.price}
+          .card-footer
+            a.btn.btn-warning Order
+    
+  
